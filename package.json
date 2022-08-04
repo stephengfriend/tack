@@ -4,7 +4,7 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "modules/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -13,14 +13,14 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "prettier": "latest",
-    "turbo": "latest"
+    "eslint-config-custom": "^0.0.0",
+    "prettier": "^2.7.1",
+    "turbo": "^1.4.0"
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=14.16.0"
   },
-  "dependencies": {},
-  "packageManager": "npm@8.15.0"
+  "packageManager": "npm@8.15.0",
+  "type": "module"
 }

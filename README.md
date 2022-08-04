@@ -4,9 +4,9 @@ This is an official starter turborepo.
 
 ## What's inside?
 
-This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It includes the following packages/apps:
+This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It includes the following modules/apps:
 
-### Apps and Packages
+### Apps and Modules
 
 - `docs`: a [Next.js](https://nextjs.org) app
 - `web`: another [Next.js](https://nextjs.org) app
@@ -30,7 +30,7 @@ This repository is used in the `npx create-turbo@latest` command, and selected w
 
 ### Build
 
-To build all apps and packages, run the following command:
+To build all apps and modules, run the following command:
 
 ```
 cd my-turborepo
@@ -39,7 +39,7 @@ npm run build
 
 ### Develop
 
-To develop all apps and packages, run the following command:
+To develop all apps and modules, run the following command:
 
 ```
 cd my-turborepo
