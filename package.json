@@ -12,6 +12,12 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "prettier": {
+		"semi": false,
+		"trailingComma": "all",
+		"singleQuote": true,
+		"useTabs": true
+	},
   "devDependencies": {
     "eslint-config-custom": "^0.0.0",
     "prettier": "^2.7.1",

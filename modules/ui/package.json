@@ -10,11 +10,20 @@
   "devDependencies": {
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
+    "@types/tough-cookie": "^4.0.2",
     "eslint": "^8.20.0",
     "eslint-config-custom": "^0.0.0",
+    "fbc-client": "^0.0.0",
     "react": "^17.0.2",
     "tsconfig": "^0.0.0",
     "typescript": "^4.7.4"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "date-fns": "^2.29.1",
+    "debug": "^4.3.4",
+    "fast-xml-parser": "^4.0.9",
+    "keyv": "^4.3.3",
+    "node-html-parser": "^5.3.3"
+  }
 }

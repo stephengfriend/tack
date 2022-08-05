@@ -8,5 +8,16 @@
     "nextjs.json",
     "react-library.json"
   ],
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "date-fns": "^2.29.1",
+    "debug": "^4.3.4",
+    "fast-xml-parser": "^4.0.9",
+    "keyv": "^4.3.3",
+    "node-html-parser": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/tough-cookie": "^4.0.2",
+    "fbc-client": "^0.0.0"
+  }
 }
