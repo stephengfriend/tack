@@ -12,17 +12,17 @@ const fetcher = (query: string) =>
     .then((json) => json.data)
 
 export default function Index() {
-  const { data, error } = useSWR('{ users { username } }', fetcher)
+  const { data, error } = useSWR('{ all(locationId: "1") { id } }', fetcher)
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
 
-  const { users } = data
+  const { all } = data
 
   return (
     <div>
-      {users.map((user: any, i: number) => (
-        <div key={i}>{user.username}</div>
+      {all.map((vessel: any, i: number) => (
+        <div key={i}>{JSON.stringify(vessel)}</div>
       ))}
     </div>
   )

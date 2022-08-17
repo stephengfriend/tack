@@ -1,0 +1,17 @@
+{
+  "name": "@tack/logger",
+  "version": "0.0.0",
+  "description": "Tack Logging Client",
+  "type": "module",
+  "private": true,
+  "exports": "./main.ts",
+  "types": "./main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "pino": "^8.4.1"
+  },
+  "author": "Stephen G. Friend <hello@stephengfriend.com>",
+  "license": "ISC"
+}

@@ -1,3 +1,4 @@
+import logger from '@tack/logger'
 import { format, parse as parseDate, startOfTomorrow } from 'date-fns'
 import { XMLParser } from 'fast-xml-parser'
 import got, { CancelableRequest, Got, Response } from 'got'
@@ -44,7 +45,7 @@ export default class FBCClient {
 	private _loginRedirect?: string | null
 	private _loginRequest?: CancelableRequest<Response<string>> | null
 
-	constructor(credentials: FBCCredentials, options: FBCOptions) {
+	constructor(credentials: FBCCredentials) {
 		this.password(credentials.password)
 		this.username(credentials.username)
 
@@ -188,8 +189,7 @@ export default class FBCClient {
 		const { club, memberId } = await this.clubAndMemberId()
 
 		return this.client()
-			.get(`${BASE_URL}${Endpoints.All}`, {
-				method: 'POST',
+			.post(`${BASE_URL}${Endpoints.All}`, {
 				headers: {
 					...POST_REQUEST_HEADERS,
 					Accept: 'application/xml, text/xml, */*; q=0.01',
@@ -372,10 +372,20 @@ export default class FBCClient {
 		return this._isLoggedIn
 	}
 
-	private login = async (opts?: {
-		username: string
-		password: string
-	}): Promise<void> => {
+	private login = async (
+		opts: {
+			username: string
+			password: string
+		} = { username: this.username(), password: this.password() },
+	): Promise<void> => {
+		logger.debug(
+			{
+				username: opts?.username,
+				password: opts?.password ? '********' : undefined,
+			},
+			'Attempting login with username %s',
+      opts?.username
+		)
 		if (!this.isLoggedIn() && !this.loginRequest()) {
 			this.loginRequest(
 				this.client().post(`${BASE_URL}${Endpoints.Login}`, {
@@ -385,8 +395,8 @@ export default class FBCClient {
 						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						email: opts?.username || this.username(),
-						password: opts?.password || this.password(),
+						email: opts?.username,
+						password: opts?.password,
 						remember_user: '1',
 					}),
 				}),
@@ -529,7 +539,6 @@ export interface Reservation {
 	date: Date
 	id: string
 	isOwn?: boolean
-	hasAvailability: () => boolean
 	location: Location
 	vessel?: Vessel
 }
@@ -576,11 +585,11 @@ export class Vessel implements Vessel {
 		this.details = typeof details === 'string' ? Vessel.parse(details) : details
 	}
 
-	static from = (value: Partial<Vessel>): Vessel => {
+	static from(value: Partial<Vessel>): Vessel {
 		return { ...Vessel.default, ...value } as Vessel
 	}
 
-	protected static parse = (details: string): VesselDetails => {
+	protected static parse(details: string): VesselDetails {
 		let engine_manufacturer = EngineManufacturer.UNKNOWN
 		let manufacturer = VesselManufacturer.UNKNOWN
 		let vessel_type = VesselType.UNKNOWN
@@ -625,11 +634,11 @@ export class Reservation implements Reservation {
 		this.vessel = vessel
 	}
 
-	static from = (value: Partial<Reservation>): Reservation => {
+	static from(value: Partial<Reservation>): Reservation {
 		return { ...Reservation.default, ...value } as Reservation
 	}
 
-	hasAvailability = (): boolean => {
+	hasAvailability() {
 		return this.available !== Availability.NONE
 	}
 }

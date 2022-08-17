@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='-r next-logger' next dev | npx pino-pretty",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_OPTIONS='-r next-logger' next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,9 +13,11 @@
     "date-fns": "^2.29.1",
     "debug": "^4.3.4",
     "fast-xml-parser": "^4.0.9",
+    "@tack/fbc-client": "^0.0.0",
     "graphql": "^16.5.0",
     "keyv": "^4.3.3",
     "next": "^12.2.3",
+    "next-logger": "^3.0.1",
     "node-html-parser": "^5.3.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -30,7 +32,6 @@
     "@types/tough-cookie": "^4.0.2",
     "eslint": "^8.20.0",
     "eslint-config-custom": "^0.0.0",
-    "fbc-client": "^0.0.0",
     "next-transpile-modules": "9.0.0",
     "tsconfig": "^0.0.0",
     "typescript": "^4.7.4"

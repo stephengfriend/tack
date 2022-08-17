@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "base.json",
+    "library.json",
     "nextjs.json",
     "react-library.json"
   ],
@@ -17,7 +18,6 @@
     "node-html-parser": "^5.3.3"
   },
   "devDependencies": {
-    "@types/tough-cookie": "^4.0.2",
-    "fbc-client": "^0.0.0"
+    "@types/tough-cookie": "^4.0.2"
   }
 }
