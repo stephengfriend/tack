@@ -9,15 +9,16 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "start": "turbo run start"
   },
   "prettier": {
-		"semi": false,
-		"trailingComma": "all",
-		"singleQuote": true,
-		"useTabs": true
-	},
+    "semi": false,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "useTabs": true
+  },
   "devDependencies": {
     "eslint-config-custom": "^0.0.0",
     "prettier": "^2.7.1",

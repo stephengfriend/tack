@@ -1,40 +1,27 @@
 {
   "name": "tack",
-  "version": "0.0.0",
-  "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='-r next-logger' next dev | npx pino-pretty",
-    "build": "next build",
-    "start": "NODE_OPTIONS='-r next-logger' next start",
-    "lint": "next lint"
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "esbuild": "^0.14.54",
+    "postcss": "^8.4.21",
+    "solid-start-static": "^0.2.26",
+    "typescript": "^4.9.4",
+    "vite": "^4.1.4"
   },
   "dependencies": {
-    "@graphql-yoga/node": "^2.13.5",
-    "date-fns": "^2.29.1",
-    "debug": "^4.3.4",
-    "fast-xml-parser": "^4.0.9",
-    "@tack/fbc-client": "^0.0.0",
-    "graphql": "^16.5.0",
-    "keyv": "^4.3.3",
-    "next": "^12.2.3",
-    "next-logger": "^3.0.1",
-    "node-html-parser": "^5.3.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "swr": "^1.3.0",
-    "ui": "latest"
+    "@solidjs/meta": "^0.28.2",
+    "@solidjs/router": "^0.8.2",
+    "solid-js": "^1.7.2",
+    "solid-start": "^0.2.26",
+    "undici": "^5.15.1"
   },
-  "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@types/node": "^18.6.2",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "@types/tough-cookie": "^4.0.2",
-    "eslint": "^8.20.0",
-    "eslint-config-custom": "^0.0.0",
-    "next-transpile-modules": "9.0.0",
-    "tsconfig": "^0.0.0",
-    "typescript": "^4.7.4"
-  },
-  "type": "module"
+  "engines": {
+    "node": ">=16.8"
+  }
 }
